@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Add a New Customer</h1>
+
+    <!-- ฟอร์มสำหรับกรอกข้อมูลลูกค้า -->
+    <form th:action="@{/web/addCustomer}" th:object="${customer}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" placeholder="Enter customer name" required>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" placeholder="Enter customer email" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Save</button>
+            <a th:href="@{/web/customers}">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>
